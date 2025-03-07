@@ -2,6 +2,12 @@ import streamlit as st
 import google.generativeai as genai
 import time
 from Home import *
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+GEMINI_API_KEY = os.getenv('GOOGLE_API_KEY')
 
 st.logo("Assets/dummy_logo.png")
 
@@ -15,7 +21,7 @@ hide_streamlit_style = """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 # Configure Gemini API
-GEMINI_API_KEY = st.secrets['GOOGLE_API_KEY']  # Replace with your API key
+#GEMINI_API_KEY = st.secrets['GOOGLE_API_KEY']  # Replace with your API key
 if not GEMINI_API_KEY:
     st.error("Gemini API key is missing. Please provide it.")
     st.stop()
