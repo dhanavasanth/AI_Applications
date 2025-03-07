@@ -2,6 +2,12 @@ import streamlit as st
 import google.generativeai as genai
 import time
 from Home import *
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+GEMINI_API_KEY = os.getenv('GOOGLE_API_KEY')
 
 st.logo("Assets/dummy_logo.png")
 
@@ -67,7 +73,7 @@ for msg in st.session_state["chat_messages"]:
 # Handle user input
 if prompt := st.chat_input("Ask your question about the document(s):"):
     # Ensure API key exists
-    api_key = st.secrets['GOOGLE_API_KEY'] 
+    api_key = GEMINI_API_KEY 
     if not api_key:
         st.info("Please provide your Gemini API key.")
         st.stop()
