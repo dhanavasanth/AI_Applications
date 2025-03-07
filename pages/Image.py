@@ -1,6 +1,11 @@
 from openai import OpenAI
 import streamlit as st
 from Home import *
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
 st.logo("Assets/dummy_logo.png")
 
 hide_streamlit_style = """
@@ -18,7 +23,7 @@ if "logged_in" not in st.session_state or not st.session_state.logged_in:
     st.stop()
 
 # Configure Gemini API
-OPENAI_API_KEY = st.secrets['OPENAI_API_KEY']  # Replace with your API key
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')  # Replace with your API key
 if not OPENAI_API_KEY:
     st.error("Gemini API key is missing. Please provide it.")
     st.stop()
