@@ -1,4 +1,5 @@
 import streamlit as st
+st.warning("Un-Authorized Access")
 # import google.generativeai as genai
 # import os
 
@@ -68,4 +69,3 @@ import streamlit as st
 #     st.rerun()
 
 
-st.warning("Un-Authorized Access")
