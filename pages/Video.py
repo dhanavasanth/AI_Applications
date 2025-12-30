@@ -102,7 +102,7 @@ if user_input := st.chat_input("Ask a question about the video (e.g., summarize,
 
     with st.spinner("The assistant is thinking..."):
 
-        model = genai.GenerativeModel(model_name="gemini-1.5-pro")
+        model = genai.GenerativeModel(model_name="gemini-2.5-flash")
         response = model.generate_content(
             [gemini_video_file, user_input],
             request_options={"timeout": 600}
@@ -116,3 +116,4 @@ if user_input := st.chat_input("Ask a question about the video (e.g., summarize,
     st.chat_message("assistant").write(response.text)
 
     st.rerun()
+
