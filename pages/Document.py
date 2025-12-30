@@ -82,7 +82,7 @@ if prompt := st.chat_input("Ask your question about the document(s):"):
     with st.spinner("The assistant is thinking..."):
         # Configure API and load model
         genai.configure(api_key=api_key)
-        model = genai.GenerativeModel(model_name="gemini-1.5-flash")
+        model = genai.GenerativeModel(model_name="gemini-2.5-flash")
 
         # Upload PDFs to the Gemini API
         uploaded_samples = [genai.upload_file(path) for path in uploaded_file_paths]
@@ -98,3 +98,4 @@ if prompt := st.chat_input("Ask your question about the document(s):"):
     st.chat_message("assistant").write(response.text)
 
     st.rerun()
+
